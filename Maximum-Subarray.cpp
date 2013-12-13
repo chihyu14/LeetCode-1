@@ -27,7 +27,7 @@ public:
     }
 };
 
-//Solution 2: divide and conquers
+//Solution 2: divide and conquers 
 class Solution {
 public:
     int maxSubArray(int A[], int n) {
