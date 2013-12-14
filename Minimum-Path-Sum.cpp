@@ -1,6 +1,8 @@
 class Solution {
 public:
     //dp: f[n][m] = min{f[n-1][m],f[n][m-1]}+grid[n][m]
+    //we could solve this problem whit O(n) space complexity!!!
+    //because we need only store the answer of previous row and the current row
     int minPathSum(vector<vector<int> > &grid) {
         //@ret: store the minimum sum from left-top to this element
         vector<vector<int> > ret(grid.size());
