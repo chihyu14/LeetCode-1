@@ -45,6 +45,7 @@ public:
         }
 }; 
 //Solution 2
+//there is a bug in this solution!!!!!!!
 class Solution {
 public:
     vector<vector<int> > levelOrder(TreeNode *root) {
@@ -77,8 +78,13 @@ public:
 		ret.push_back(vector<int>());
 	    ret[idx].push_back(cur->val);
 	    //process the left subtree
+	    //!!!!!!!!!!!be careful!!!!!!!
+	    //key*2 will be very large!!!!!!!!!
+	    //!!!!!may not in the range of int!!!!!!!!!!!!!!
             process(cur->left, key*2, ret);
 	    //process the right subtree
             process(cur->right, key*2+1, ret);
         }
 };
+//Solution 3
+//see Binary-Tree-Level-Order-Traversal-II.cpp for more information!!!!
