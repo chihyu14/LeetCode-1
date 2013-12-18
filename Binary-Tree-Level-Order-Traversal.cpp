@@ -1,3 +1,4 @@
+//Solution 1
 class Solution {
 public:
     vector<vector<int> > levelOrder(TreeNode *root) {
@@ -43,3 +44,41 @@ public:
             process(cur->right, key*2+1, ret);
         }
 }; 
+//Solution 2
+class Solution {
+public:
+    vector<vector<int> > levelOrder(TreeNode *root) {
+        //@ret: answer we will return 
+        vector<vector<int> > ret;
+        //travel the tree and calculate the answer
+        process(root, 1, ret);
+        //return the answer
+        return ret;
+    }
+    //return the level of x
+    //@x: the index of the node (>=1)
+    int log2(int x)
+        {
+            int ret = 0;
+            while((1<<ret) <= x)
+                ++ret;
+            return ret-1;
+        }
+    //travel the tree
+    void process(TreeNode *cur, int key, vector<vector<int> > &ret)
+        {
+	    //the tree is empty
+            if(NULL == cur)
+                return;
+	    //get the index of current node
+	    int idx = log2(key);
+	    //push a new level into the ret if needed
+	    if(idx>=ret.size())
+		ret.push_back(vector<int>());
+	    ret[idx].push_back(cur->val);
+	    //process the left subtree
+            process(cur->left, key*2, ret);
+	    //process the right subtree
+            process(cur->right, key*2+1, ret);
+        }
+};
