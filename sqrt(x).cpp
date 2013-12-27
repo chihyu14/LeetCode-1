@@ -1,3 +1,6 @@
+//there are some other solutions, such as 
+//binary search, newton solution
+//and a O(1) solution from Quake's source code!!!!!
 class Solution {
 public:
     int sqrt(int x) {
