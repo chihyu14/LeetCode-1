@@ -6,6 +6,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ #Solution 1
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
@@ -82,3 +83,12 @@ public:
         return first;
     }
 };
+#Solution 2
+//x: the steps we use to move from the list's head to he cycle's beginning.
+//y: the length of the cycle
+//t: total steps *fast* used to catch *slow*
+//we know (2*t-x) % y = (t-x)%y
+//1. t%y == 0
+//2. when fast catches slow, let slow be the head of the list,
+// and fast move a step instead of two once, slow mvoes a step once,
+// then, fast and slow will meet at the beginning of the cycle.
