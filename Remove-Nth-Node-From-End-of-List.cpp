@@ -6,6 +6,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ //Solution 1
 class Solution {
 public:
     ListNode *removeNthFromEnd(ListNode *head, int n) {
@@ -33,3 +34,7 @@ public:
         return t;
     }
 }; 
+//Solution 2
+//first, let p1 point to the k-th node, p2 point to the first node,
+//then, move p1 and p2 the same time. when p1 reaches the end, the node
+//p2 points to is we want.
